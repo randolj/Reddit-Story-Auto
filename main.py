@@ -1,12 +1,13 @@
 from ttspeech import tts
 from moviepy.editor import *
+import numpy as np
 import os
 
 def text_to_speech(text, filename):
     # Specify the filename (optional)
     output_filename = filename
 
-    # Specify whether to play the generated audio (True/False)
+    # Specify whether to play the generated audio right away (True/False)
     play_audio = False
 
     # Call the tts function
@@ -18,11 +19,18 @@ def audio_to_video(video_path, audio_path, output_path):
 
     new_audioclip = CompositeAudioClip([audio_clip])
     
-    # Trim the video to match the duration of the audio
-    video_clip = video_clip.subclip(0, audio_clip.duration)
+    # Randomize section of video
+    audio_length = audio_clip.duration
+    max_start = video_clip.duration - audio_length
+    random_start = max(0, min(max_start, np.random.uniform(0, max_start)))
 
+    # Trim the video to match the duration of the audio
+    video_clip = video_clip.subclip(random_start, random_start + audio_clip.duration)
+
+    # Set video audio to new audio
     video_clip.audio = new_audioclip
 
+    # Change video aspect ratio
     new_clip = vfx.crop(video_clip, x1=360, y1=0, width=540, height=960)
 
     # Write the result to a file
