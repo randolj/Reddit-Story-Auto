@@ -8,7 +8,7 @@ import textwrap
 
 # 006 for male, 001 for female
 default_voice = 'en_us_006'
-default_session_id = <session_ID_here>
+default_session_id = <SESSION_ID>
 
 def tts(req_text: str, filename: str = 'voice.mp3', play: bool = False):
     req_text = req_text.replace("+", "plus")
@@ -49,7 +49,8 @@ def tts(req_text: str, filename: str = 'voice.mp3', play: bool = False):
         "log": log
     }
 
-    print(output_data)
+    print(output_data["status"])
+    # print("Length:", output_data["duration"], (int)output_data["duration"]/60, "m", (int)output_data["duration"]%60, "s")
 
     if play:
         playsound.playsound(filename)

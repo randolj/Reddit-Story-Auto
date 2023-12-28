@@ -38,7 +38,7 @@ def audio_to_video(video_path, audio_path, output_path):
 
 def main():
     video_file = 'resources/parkour.mp4'
-    text_content = 'Hello, this is the text I want to convert to speech. Thank you'
+    text_content = "AITA for refusing to share my homemade cookies with my neighbor? I recently took up baking as a hobby and made a batch of amazing chocolate chip cookies. This morning, my neighbor knocked on my door, expressing how great they smelled and asking for a few."
 
     # Save the TTS-generated audio as a temporary file
     temp_audio_file = 'temp_audio.mp3'
