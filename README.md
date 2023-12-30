@@ -7,6 +7,7 @@ This Python script uses tik tok's text-to-speech API with the moviepy library to
 ## Libraries and API's used
 
 - moviepy
+- Reddit PRAW
 - TikTok TTS API found [here](https://github.com/oscie57/tiktok-voice)
 
 ## Current and Future Functionality
