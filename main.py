@@ -1,5 +1,6 @@
 from ttspeech import tts
 from moviepy.editor import *
+from redditprocess import getBody
 import numpy as np
 import os
 
@@ -10,8 +11,10 @@ def text_to_speech(text, filename):
     # Specify whether to play the generated audio right away (True/False)
     play_audio = False
 
+    input_file_path = "resources/input.txt"
+
     # Call the tts function
-    tts(text, output_filename, play_audio)
+    tts(text, output_filename, play_audio, input_file_path)
 
 def audio_to_video(video_path, audio_path, output_path):
     video_clip = VideoFileClip(video_path)
@@ -38,7 +41,11 @@ def audio_to_video(video_path, audio_path, output_path):
 
 def main():
     video_file = 'resources/parkour.mp4'
-    text_content = "AITA for refusing to share my homemade cookies with my neighbor? I recently took up baking as a hobby and made a batch of amazing chocolate chip cookies. This morning, my neighbor knocked on my door, expressing how great they smelled and asking for a few."
+    text_content = "OOP! Something went wrong"
+
+    with open('resources/input.txt', 'w') as file:
+        # Write text to file
+        file.write(getBody())
 
     # Save the TTS-generated audio as a temporary file
     temp_audio_file = 'temp_audio.mp3'

@@ -15,9 +15,10 @@ Current:
 - Trims the Minecraft parkour to the length of the audio file
 - Adjusts the video to TikTok/YouTube Short aspect ratio
 - Adds the generated audio file to the Minecraft parkour video
+- Randomly selects a segment from the Minecraft parkour video
+- Can edit code in redditprocess.py to select a post and have it create a video with it
 
 Future:
-- Randomly selects a segment from the Minecraft parkour video
 - Randomly selects a Reddit Story
 - Subtitles added over video
 
